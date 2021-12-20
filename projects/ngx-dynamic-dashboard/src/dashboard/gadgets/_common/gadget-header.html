@@ -1,0 +1,30 @@
+<div class="ui top attached label">
+    <div class="ui top left floated label ct-title">{{title}}</div>
+    <span class="spacer"></span>
+    <button (click)="remove()"
+            *ngIf="showControls || globalOptions.enableHover" class="compact ui button right floated">
+        <i class="mi mi-remove"></i>
+    </button>
+    <button (click)="toggleConfigMode()"
+            *ngIf="showControls || globalOptions.enableHover && showConfigurationControl" class="compact ui button right floated">
+        <i class="mi mi-settings"></i>
+    </button>
+    <button (click)="help()"
+            *ngIf="showControls || globalOptions.enableHover" class="compact ui button right floated">
+        <i class="mi mi-help"></i>
+    </button>
+
+    <dashboard-gadget-operation-control (runEvent)="run()"
+                                        (stopEvent)="stop()"
+                                        *ngIf="showControls || globalOptions.enableHover"
+                                        [actionInitiated]="actionInitiated"
+                                        [gadgetHasOperationControls]="gadgetHasOperationControls"
+                                        [inConfig]="inConfig"
+                                        [inRun]="inRun"
+                                        [showOperationControls]="showOperationControls">
+
+    </dashboard-gadget-operation-control>
+
+
+</div>
+<div class="spacer"></div>
